@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/css/estilo.css">
+    <link href="/resources/imagenes/baner1.png" rel="icon">
+    <title>Formulario de registro</title>
+</head>
+
+<body>
+    <section class="formRegistro">
+        <img class="logo" src="/resources/imagenes/Amazonas.png" alt="">
+        <h4>Registro</h4>
+        <form action="registro" method="POST">
+            <input class="controls" type="text" name="nombres" id="nombres" placeholder="Nombres">
+            <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+            <input class="controls" type="text" name="id" id="id" placeholder="Documento de Identidad">
+            <input class="controls" type="email" name="correo" id="correo" placeholder="Correo" attern=".+@globex.com" size="30" required>
+            <input class="controls" type="password" name="pass" id="contraseña" placeholder="Contraseña">
+            <p>¿Qué edad tienes? </p>
+            <select name="unidad" id="unidad" class="select-css">
+                <option value="familia" selected>Entre 6-8</option>
+                <option value="manada">Entre 8-9</option>
+                <option value="tropa">Entre 10-13</option>
+                <option value="pioneros">Entre 14-15</option>
+                <option value="clan">Entre 16-19</option>
+            </select>
+            <div style="display: inline;">
+
+                <a href="/" class="btn-cancel">Cancelar</a><input type="submit" class="btn-save" value="Registrar">
+
+            </div>
+
+            <p><a href="ingreso">¿Ya estás registrado?</a></p>
+
+        </form>
+
+    </section>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if(typeof alert != 'undefined'){ %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: '<%= showConfirmButton %>',
+                timer: <%= timer %>
+            }).then(() => {
+                window.location = '/<%=ruta%>'
+            })
+        </script>
+        <% } %>
+
+        
+
+</body>
+
+</html>

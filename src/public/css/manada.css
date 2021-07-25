@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.titulo {
+    color: #969900;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+header {
+    width: 100%;
+    height: 600px;
+    background: #283c86;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(59, 100%, 50%, 0.699), hsla(0, 0%, 0%, 0.699)), url(../imagenes/amazonas.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(59, 100%, 50%, 0.699), hsla(0, 0%, 0%, 0.699)), url(../imagenes/amazonas.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+header .logo-header {
+    top: 130px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size:x-large;
+    
+    
+}
+
+nav {
+    text-align: right;
+    padding: 30px 50px 0 0;
+}
+
+nav>a {
+    color: #fff;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: large;
+}
+
+nav>a:hover {
+    text-decoration: underline;
+}
+
+header .textos-header {
+    display: flex;
+    height: 430px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+header .textos-header h1 {
+    font-size: 50px;
+    color: #fff;
+}
+
+header .textos-header h2 {
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.contenedor-sobre-nosotros {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.imagen-about-us {
+    width: 48%;
+}
+
+.sobre-nosotros .contenido-texto {
+    width: 48%;
+    font-size: large;
+}
+
+.contenido-texto h3 {
+    margin-bottom: 15px;
+}
+
+.contenido-texto h3 span {
+    background: #247438;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    margin-right: 5px;
+}
+
+.contenido-texto p {
+    padding: 0 0 30px 15px;
+    font-weight: 300;
+    text-align: justify;
+}
+
+.portafolio {
+    background: #f2f2f2;
+}
+
+.galeria-port {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.imagen-port {
+    width: 32%;
+    margin-bottom: 10px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.imagen-port>img {
+    width: 92%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+}
+
+.hover-galeria {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(239, 70%, 38%, 0.7);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hover-galeria img {
+    width: 50px;
+}
+
+.hover-galeria a {
+    color: #fff;
+}
+
+.imagen-port:hover .hover-galeria {
+    transform: scale(1);
+}
+
+.contenedor-footer {
+    text-align: center;
+}
+
+.titulo-final {
+    text-align: center;
+}
+
+
+/*
+Cronograma
+*/
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+table {
+    margin: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 2px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.imagen-unid {
+    width: 9%;
+    margin: auto;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.imagen-unid>img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+}
+
+p {
+    text-align: center;
+}
+
+
+/*
+Eventos
+*/
+
+.cuadrado {
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #ffffff;
+    border: solid 1px rgb(11, 33, 105);
+    color: rgb(0, 0, 0);
+}
+
+.contenido-texto-eventos h2 {
+    margin-bottom: 15px;
+}
+
+.contenido-texto-eventos h3 {
+    padding: 0 0 30px 15px;
+    font-weight: 300;
+    text-align: justify;
+}

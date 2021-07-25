@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/css/tropa.css">
+    <link href="/resources/imagenes/baner1.png" rel="icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <title>Tropa</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" >
+                  <img src= "/resources/imagenes/baner1.png" alt="" width="30" height="30">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="cronograma">Cronograma</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="eventos">Eventos</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <% if (login) { %>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Bienvenido, <%=nombres%>
+                    </a>
+                    <% } else { %>
+                        <a class="nav-link" href="ingreso" >
+                            Inicio de sesión</a>
+                        <% } %>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">Estado de cuenta</a></li>
+                      <li><a class="dropdown-item" href="#">Unidad</a></li>
+                      <li><a class="dropdown-item" href="logout">Cerrar Sesion</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <section class="logo-header">
+            <img src="/resources/imagenes/tropa1.png" alt="">
+            <h1>Tropa Matses</h1>
+            
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C151.52,165.28 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:    #fff ;">
+            </path>
+            </svg>
+        </div>
+    </header>
+    <main>
+        <section class="contenedor sobre-nosotros">
+            <h2 class="titulo">¿Qué es la Tropa?</h2>
+            <div class="contenedor-sobre-nosotros">
+                <img src="/resources/imagenes/tropa.png" alt="" class="imagen-about-us">
+                <div class="contenido-texto">
+                    <h3>Mística</h3>
+                    <p>La Tropa Matses son unos expertos cazadores mitad hombre mitad gatos, son muy fuertes, protectores, ágiles y letales a la hora de cazar.
+                    </p>
+                    <h3>Actividades</h3>
+                    <p>La Tropa Matses es una unidad entre los 10 y 14 años,
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="portafolio">
+            <div class="contenedor">
+                <h2 class="titulo">unidades</h2>
+                <div class="galeria-port">
+                    <div class="imagen-port">
+                        <img src="/resources/imagenes/cachorros.png" alt="">
+                        <div class="hover-galeria">
+                            <img src="/resources/imagenes/search.png" alt="">
+                            <p><a href="familia">Familia Kubai</a></p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="/resources/imagenes/manada.png" alt="">
+                        <div class="hover-galeria">
+                            <img src="/resources/imagenes/search.png" alt="">
+                            <p><a href="manada">Manada Pecarí</a> </p>
+                        </div>
+                    </div>
+
+                    <div class="imagen-port">
+                        <img src="/resources/imagenes/pioneros.png" alt="">
+                        <div class="hover-galeria">
+                            <img src="/resources/imagenes/search.png" alt="">
+                            <p><a href="pioneros">Sociedad Kodamas</a></p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="/resources/imagenes/clan.png" alt="">
+                        <div class="hover-galeria">
+                            <img src="/resources/imagenes/search.png" alt="">
+                            <p><a href="clan">Clan Cahuainarí</a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Section: Social media -->
+        <section
+          class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+        >
+      
+          <!-- Right -->
+          <div>
+            <a href="https://www.facebook.com/Grupo-Scout-Amazonas-172-581877781856455" class="me-4 text-reset" target="_blank"> 
+              <i class="fab fa-facebook-f"></i>
+            </a>
+        
+           
+            <a href="https://instagram.com/gsamazonas172?utm_medium=copy_link" class="me-4 text-reset" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            
+            <a href="https://www.youtube.com/channel/UC3fuS4NCMgxgyQ7sstjEgQw" class="me-4 text-reset" target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+          <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+      
+        <!-- Section: Links  -->
+        <section class="">
+          <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-4 col-xl-3  mb-4">
+                <!-- Content -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  <i class="fas fa-gem me-3"></i>Contáctenos:
+                </h6>
+    
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold  mb-4">
+                  Jefe de grupo
+                </h6>
+                <p>
+                  Andrea Giraldo
+                </p>
+               
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold  mb-4">
+                  Número celular
+                </h6>
+                <p>
+                   +57 3103849926
+                </p>
+                
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold  mb-4">
+                  Correo
+                </h6>
+                
+                <p>
+                  
+                  Amazonas172@gmail.com
+                </p>
+                
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+          </div>
+        </section>
+        <!-- Section: Links  -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+          <h2>&copy; Grupo Scout Amazonas 172</h2>  
+         
+        </div>
+        <!-- Copyright -->
+      </footer>
+</body>
+
+</html>
