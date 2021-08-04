@@ -178,6 +178,27 @@ module.exports = app => {
         
     })
 
+    app.get('/estado', (req, res) => {
+        if (req.session.loggedin) {
+            res.render('../views/estado.ejs', {
+                login: true,
+                nombres: req.session.nombres,
+                apellidos: req.session.apellidos,
+                rol: req.session.rol,
+                unidad: req.session.unidad
+            })
+        } else {
+            res.render('../views/estado.ejs', {
+                login: false,
+                nombres: "",
+                apellidos: "",
+                rol: "",
+                unidad: ""
+            })
+        }
+        
+    })
+
 
     app.get('/ingreso', (req, res) => {
         res.render('../views/ingreso.ejs')
