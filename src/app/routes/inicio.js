@@ -9,16 +9,16 @@ module.exports = app => {
                 login: true,
                 nombres: req.session.nombres,
                 apellidos: req.session.apellidos,
-                rol: req.session.rol,
-                unidad: req.session.unidad
+                fk_id_rol: req.session.fk_id_rol,
+                fk_id_unidad: req.session.fk_id_unidad
             })
         } else {
             res.render('../views/principal.ejs', {
                 login: false,
                 nombres: "",
                 apellidos: "",
-                rol: "",
-                unidad: ""
+                fk_id_rol: "",
+                fk_id_unidad: ""
             })
         }
 
@@ -31,20 +31,43 @@ module.exports = app => {
                 login: true,
                 nombres: req.session.nombres,
                 apellidos: req.session.apellidos,
-                rol: req.session.rol,
-                unidad: req.session.unidad
+                fk_id_rol: req.session.fk_id_rol,
+                fk_id_unidad: req.session.fk_id_unidad
+                
             })
         } else {
             res.render('../views/cronograma.ejs', {
                 login: false,
                 nombres: "",
                 apellidos: "",
-                rol: "",
-                unidad: ""
+                fk_id_rol: "",
+                fk_id_unidad: ""
+
+                
             })
         }
-       
+        
+        
     })
+
+
+    app.post('/cronograma', async (req, res) => {
+     const { titulo, cargo_at, descripcion, fecha, hora} = req.body;
+    //Query para registro de usuario
+     connection.query("INSERT INTO eventos SET ?", {
+            titulo: titulo,
+
+            cargo_at: cargo_at,
+
+            descripcion: descripcion,
+
+            fecha: fecha,
+
+            hora: hora
+        })
+        res.send("recibido")
+    })
+    
 
 
     app.get('/eventos', (req, res) => {
@@ -53,16 +76,16 @@ module.exports = app => {
                 login: true,
                 nombres: req.session.nombres,
                 apellidos: req.session.apellidos,
-                rol: req.session.rol,
-                unidad: req.session.unidad
+                fk_id_rol: req.session.fk_id_rol,
+                fk_id_unidad: req.session.fk_id_unidad
             })
         } else {
             res.render('../views/eventos.ejs', {
                 login: false,
                 nombres: "",
                 apellidos: "",
-                rol: "",
-                unidad: ""
+                fk_id_rol: "",
+                fk_id_unidad: ""
             })
         }
         
@@ -75,16 +98,16 @@ module.exports = app => {
                 login: true,
                 nombres: req.session.nombres,
                 apellidos: req.session.apellidos,
-                rol: req.session.rol,
-                unidad: req.session.unidad
+                fk_id_rol: req.session.fk_id_rol,
+                fk_id_unidad: req.session.fk_id_unidad
             })
         } else {
             res.render('../views/familia.ejs', {
                 login: false,
                 nombres: "",
                 apellidos: "",
-                rol: "",
-                unidad: ""
+                fk_id_rol: "",
+                fk_id_unidad: ""
             })
         }
         
@@ -97,16 +120,16 @@ module.exports = app => {
                 login: true,
                 nombres: req.session.nombres,
                 apellidos: req.session.apellidos,
-                rol: req.session.rol,
-                unidad: req.session.unidad
+                fk_id_rol: req.session.fk_id_rol,
+                fk_id_unidad: req.session.fk_id_unidad
             })
         } else {
             res.render('../views/manada.ejs', {
                 login: false,
                 nombres: "",
                 apellidos: "",
-                rol: "",
-                unidad: ""
+                fk_id_rol: "",
+                fk_id_unidad: ""
             })
         }
         
@@ -119,16 +142,16 @@ module.exports = app => {
                 login: true,
                 nombres: req.session.nombres,
                 apellidos: req.session.apellidos,
-                rol: req.session.rol,
-                unidad: req.session.unidad
+                fk_id_rol: req.session.fk_id_rol,
+                fk_id_unidad: req.session.fk_id_unidad
             })
         } else {
             res.render('../views/tropa.ejs', {
                 login: false,
                 nombres: "",
                 apellidos: "",
-                rol: "",
-                unidad: ""
+                fk_id_rol: "",
+                fk_id_unidad: ""
             })
         }
         
@@ -141,16 +164,16 @@ module.exports = app => {
                 login: true,
                 nombres: req.session.nombres,
                 apellidos: req.session.apellidos,
-                rol: req.session.rol,
-                unidad: req.session.unidad
+                fk_id_rol: req.session.fk_id_rol,
+                fk_id_unidad: req.session.fk_id_unidad
             })
         } else {
             res.render('../views/pioneros.ejs', {
                 login: false,
                 nombres: "",
                 apellidos: "",
-                rol: "",
-                unidad: ""
+                fk_id_rol: "",
+                fk_id_unidad: ""
             })
         }
         
@@ -163,16 +186,16 @@ module.exports = app => {
                 login: true,
                 nombres: req.session.nombres,
                 apellidos: req.session.apellidos,
-                rol: req.session.rol,
-                unidad: req.session.unidad
+                fk_id_rol: req.session.fk_id_rol,
+                fk_id_unidad: req.session.fk_id_unidad
             })
         } else {
             res.render('../views/clan.ejs', {
                 login: false,
                 nombres: "",
                 apellidos: "",
-                rol: "",
-                unidad: ""
+                fk_id_rol: "",
+                fk_id_unidad: ""
             })
         }
         
@@ -184,16 +207,16 @@ module.exports = app => {
                 login: true,
                 nombres: req.session.nombres,
                 apellidos: req.session.apellidos,
-                rol: req.session.rol,
-                unidad: req.session.unidad
+                fk_id_rol: req.session.fk_id_rol,
+                fk_id_unidad: req.session.fk_id_unidad
             })
         } else {
             res.render('../views/estado.ejs', {
                 login: false,
                 nombres: "",
                 apellidos: "",
-                rol: "",
-                unidad: ""
+                fk_id_rol: "",
+                fk_id_unidad: ""
             })
         }
         
@@ -225,8 +248,8 @@ module.exports = app => {
 
     app.post('/registro', async(req, res) => {
 
-        const { nombres, apellidos, id, correo, pass, unidad } = req.body;
-        let rol = "muchacho";
+        const { nombres, apellidos, id, correo, pass, fk_id_unidad } = req.body;
+        let fk_id_rol = 4;
         console.log(req.body);
         let passwordHaash = await bcryptjs.hash(pass, 8);
         //Query para registro de usuario
@@ -242,9 +265,9 @@ module.exports = app => {
 
             pass: passwordHaash,
 
-            rol: rol,
+            fk_id_rol: fk_id_rol,
 
-            unidad: unidad
+            fk_id_unidad: fk_id_unidad
 
         }, async(error, results) => {
 
@@ -271,6 +294,9 @@ module.exports = app => {
 
 
 
+   
+
+// -----------------aletar de conexión exitosa o fallida del ingreso
     app.post('/auth', (req, res) => {
         const { id, pass } = req.body
 
@@ -291,15 +317,10 @@ module.exports = app => {
                     req.session.loggedin = true;
                     req.session.nombres = results[0].nombres;
                     req.session.apellidos = results[0].apellidos;
-                    req.session.unidad = results[0].unidad;
-                    req.session.rol = results[0].rol;
-                    /*
-                    if (req.session.familia === "familia"){
-                        ruta = "familia_kubai"
-                    } else if (req.session.familia === "manada"){
-                        ruta = "manada_pecari"
-                    NOTA: HAY QUE COMPLETAR CON LAS DEMAS FAMILIAS EL TEMA DEL REDIRECCIONAMIENTO A LA RUTA
-                    }*/
+                    req.session.fk_id_unidad = results[0].fk_id_unidad;
+                    req.session.fk_id_rol = results[0].fk_id_rol;
+                   
+                    
                     //SWAL2 para correcto:
                     res.render('../views/ingreso.ejs', {
                         alert: true,
