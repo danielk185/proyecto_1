@@ -8,26 +8,36 @@ CREATE TABLE usuario(
     apellidos VARCHAR(50),
     correo VARCHAR(50),
     pass VARCHAR(255),
-    rol VARCHAR(50),
-    unidad VARCHAR(50)
+    fk_id_unidad VARCHAR(50),
+    fk_id_rol VARCHAR(50)
 );
 
 DESCRIBE usuario;
 
+CREATE TABLE roles (
+    id_rol INT NOT NULL PRIMARY KEY,
+    rol VARCHAR(20)
+)
+
+DESCRIBE roles;
+
 CREATE TABLE eventos(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    tipo_evento VARCHAR(50),
+    id_evento INT NOT NULL PRIMARY KEY,
+    titulo VARCHAR(50),
+    cargo_at VARCHAR(50),
     descripcion VARCHAR(100),
-    unidad VARCHAR(20),
     fecha DATE NOT NULL,
-    hora TIME NOT NULL
+    hora TIME NOT NULL,
+    fk_id_rol INT,
+    fk_id_unidad INT
 );
 
 DESCRIBE eventos;
 
 
 CREATE TABLE unidad(
-
+id_unidad INT NOT NULL PRIMARY KEY,
+nombre_unidad varchar(50)
 );
 
 DESCRIBE unidad;
