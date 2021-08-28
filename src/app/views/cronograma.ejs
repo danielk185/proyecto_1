@@ -49,7 +49,19 @@
                         <% } %>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li><a class="dropdown-item" href="estado">Estado de cuenta</a></li>
-                      <li><a class="dropdown-item" href="#">Unidad</a></li>
+                      <% if (fk_id_unidad==1) { %> 
+                        <li><a class="dropdown-item" href="familia">Unidad</a></li>
+                        <% }else if (fk_id_unidad==2) {%>
+                          <li><a class="dropdown-item" href="manada">Unidad</a></li>
+                          <% }else if (fk_id_unidad==3) {%>
+                          <li><a class="dropdown-item" href="tropa">Unidad</a></li>
+                          <% }else if (fk_id_unidad==4) {%>
+                          <li><a class="dropdown-item" href="pioneros">Unidad</a></li>
+                          <% }else if (fk_id_unidad==5) {%>
+                          <li><a class="dropdown-item" href="clan">Unidad</a></li>
+                          <% }else { %> 
+                          <li><a class="dropdown-item" href="#">Unidad</a></li>
+                          <% } %> 
                       <li><a class="dropdown-item" href="logout">Cerrar Sesion</a></li>
                     </ul>
                   </li>
@@ -69,30 +81,53 @@
         </div>
     </header>
     <main>
+      <form action="cronograma" method="POST">
+        <div class="row align-items-center event-block no-gutters margin-40px-bottom">
+          <div class="col-lg-7 order-2 order-lg-1">
+              <div class="padding-60px-lr md-padding-50px-lr sm-padding-30px-all xs-padding-25px-all">
+                <input type="text" class="margin-15px-bottom md-margin-10px-bottom font-size22 md-font-size20 xs-font-size18 font-weight-500" name="titulo" placeholder="Título">
+                  <ul class="event-time margin-10px-bottom md-margin-5px-bottom">
+                      <li><input class="far fa-clock margin-10px-right" type="time" name="hora" placeholder="hora"></li>
+                      <li><input class="fas fa-user margin-5px-right" type="text" name="cargo_at" placeholder="a cargo de quién"></li>
+                  </ul>
+                  <textarea name="descripcion" placeholder="descripción" rows="2" class="form-control" placeholder="descripción"></textarea>
+                 
+              </div>
+          </div>
+          <div class="col-lg-5 order-1 order-lg-2">
+              <div class="position-relative">
+                  <img src="/resources/imagenes/familia1.png" alt="">
+                  <div class="events-date">
+                      <div class="font-size28">
+                        <input type="date" name= "fecha" placeholder= "dia">
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+        <!--<div class="card" style="width: 18rem;">
+          <img src="/resources/imagenes/cachorros1.png" class="card-img-top" alt="">
+          <div class="card-body">
+            <input type="date" name= "fecha" placeholder= "dia">
+            <input type="text" class="margin-15px-bottom md-margin-10px-bottom font-size22 md-font-size20 xs-font-size18 font-weight-500" name="titulo" placeholder="Título">
+            <input class="far fa-clock margin-10px-right" type="time" name="hora" placeholder="hora">
+            <input class="fas fa-user margin-5px-right" type="text" name="cargo_at" placeholder="a cargo de quién">
+            <textarea name="descripcion" placeholder="descripción" rows="2" class="form-control" placeholder="descripción"></textarea>
+            <div class="form-group">
+              <button class="btn btn-success btn-block">Guardar</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <input type="submit" class="btn btn-primary" value="Editar">
+            </div>
+          </div>
+        </div> -->
+      </form>
         <div class="container">
             <!-- start event block -->
-            <div class="row align-items-center event-block no-gutters margin-40px-bottom">
-                <div class="col-lg-5 col-sm-12">
-                    <div class="position-relative">
-                        <img src="/resources/imagenes/cachorros1.png" alt="">
-                        <div class="events-date">
-                            <div class="font-size28">10</div>
-                            <div class="font-size14">Mar</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-sm-12">
-                    <div class="padding-60px-lr md-padding-50px-lr sm-padding-30px-all xs-padding-25px-all">
-                        <h5 class="margin-15px-bottom md-margin-10px-bottom font-size22 md-font-size20 xs-font-size18 font-weight-500"><a href="#!" class="text-theme-color">Reunión de mística</a></h5>
-                        <ul class="event-time margin-10px-bottom md-margin-5px-bottom">
-                            <li><i class="far fa-clock margin-10px-right"></i> 02:00 PM - 04:30 PM</li>
-                            <li><i class="fas fa-user margin-5px-right"></i> A cargo de la jefatura de cachorros</li>
-                        </ul>
-                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore</p>
-                        
-                    </div>
-                </div>
-            </div>
+            
+            
             <!-- end event block -->
         
             <!-- start event block -->
@@ -196,6 +231,7 @@
             <!-- end event block -->
         
         </div>
+      
    
     </main>
     <footer class="text-center text-lg-start bg-light text-muted">
@@ -291,5 +327,21 @@
         </div>
         <!-- Copyright -->
       </footer>
+
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if(typeof alert != 'undefined'){ %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: '<%= showConfirmButton %>',
+                timer: <%= timer %>
+            }).then(() => {
+                window.location = '/<%=ruta%>'
+            })
+        </script>
+        <% } %>
 </body>
 </html>
